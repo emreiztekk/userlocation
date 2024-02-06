@@ -27,14 +27,15 @@
                 // Check if location has changed
                 if (!lastLocation || currentLocation.latitude !== lastLocation.latitude || currentLocation.longitude !== lastLocation.longitude) {
                     const message = 'User location changed to:\nLatitude: ' + currentLocation.latitude + '\nLongitude: ' + currentLocation.longitude;
-                    alert(message);
+                    console.log(message);
+                    // alert(message);
                     lastLocation = currentLocation;
                 }
             });
         }
 
         // Call the checkLocation function at regular intervals
-        setInterval(checkLocation, 5000); // Check every 5 seconds (adjust as needed)
+        setInterval(checkLocation, 1); // Check every 5 seconds (adjust as needed)
     </script>
 </body>
 </html>
