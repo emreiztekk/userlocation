@@ -26,7 +26,8 @@
 
                 // Check if location has changed
                 if (!lastLocation || currentLocation.latitude !== lastLocation.latitude || currentLocation.longitude !== lastLocation.longitude) {
-                    console.log('User location changed to:', currentLocation);
+                    const message = 'User location changed to:\nLatitude: ' + currentLocation.latitude + '\nLongitude: ' + currentLocation.longitude;
+                    alert(message);
                     lastLocation = currentLocation;
                 }
             });
