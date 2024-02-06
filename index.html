@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AR.js Location Change Logger</title>
+    <!-- Include AR.js and any other necessary libraries -->
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/2.3.2/aframe/build/aframe-ar.js"></script>
+</head>
+<body>
+    <a-scene embedded arjs="sourceType: webcam; trackingMethod: best;">
+        <!-- Your AR content goes here -->
+    </a-scene>
+    <script>
+        // Define a variable to store the last known location
+        let lastLocation = null;
+
+        // Function to check and log location changes
+        function checkLocation() {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                const currentLocation = {
+                    latitude: position.coords.latitude,
+                    longitude: position.coords.longitude
+                };
+
+                // Check if location has changed
+                if (!lastLocation || currentLocation.latitude !== lastLocation.latitude || currentLocation.longitude !== lastLocation.longitude) {
+                    console.log('User location changed to:', currentLocation);
+                    lastLocation = currentLocation;
+                }
+            });
+        }
+
+        // Call the checkLocation function at regular intervals
+        setInterval(checkLocation, 5000); // Check every 5 seconds (adjust as needed)
+    </script>
+</body>
+</html>
