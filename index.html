@@ -23,14 +23,15 @@
                     latitude: position.coords.latitude,
                     longitude: position.coords.longitude
                 };
+                const message = 'User location:\nLatitude: ' + currentLocation.latitude + '\nLongitude: ' + currentLocation.longitude;
 
                 // Check if location has changed
-                if (!lastLocation || currentLocation.latitude !== lastLocation.latitude || currentLocation.longitude !== lastLocation.longitude) {
-                    const message = 'User location changed to:\nLatitude: ' + currentLocation.latitude + '\nLongitude: ' + currentLocation.longitude;
-                    console.log(message);
-                    // alert(message);
-                    lastLocation = currentLocation;
-                }
+                // if (!lastLocation || currentLocation.latitude !== lastLocation.latitude || currentLocation.longitude !== lastLocation.longitude) {
+                //     const message = 'User location changed to:\nLatitude: ' + currentLocation.latitude + '\nLongitude: ' + currentLocation.longitude;
+                //     console.log(message);
+                //     // alert(message);
+                //     lastLocation = currentLocation;
+                // }
             });
         }
 
